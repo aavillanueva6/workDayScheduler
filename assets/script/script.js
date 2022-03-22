@@ -66,6 +66,8 @@ function getTimeDate() {
 }
 
 function checkTimes() {
+  getTimeDate();
+  console.log('checkTimes called');
   $.each(textBlocks, function () {
     let timeComparitor = parseInt($(this).attr('data-time'));
     if (timeComparitor < currentTime) {
@@ -84,7 +86,8 @@ function checkTimes() {
 //TODO: currently this is for any click on the container... needs to be changed to be when current target is a saveBtn.
 //TODO: this currently just runs the init function.  actual functionality should run a function to save typed data, and run the getTimeDate function
 $('.container').on('click', '.saveBtn', function (event) {
-  let btnClicked = $(event.target);
+  console.log(event.currentTarget);
+  let btnClicked = $(event.currentTarget);
   let parentOfBtn = btnClicked.parent('div');
   let textAreaClicked = parentOfBtn.children('textarea');
 
@@ -99,3 +102,6 @@ $('.container').on('click', '.saveBtn', function (event) {
 
 // Calls initiliaztion function
 init();
+
+// runs the checkTimes once every minute after the initial load.  This will pull the new current time from moment, and then update the time rows if needed.
+setInterval(checkTimes, 60000);
