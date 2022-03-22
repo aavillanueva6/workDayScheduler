@@ -45,7 +45,8 @@ function getTimeDate() {
 }
 
 /**
- * function with no arguments.  This function calls the getTimeDate function and updates the class for the time blocks based on what time it is when the funciton is called.
+ * function with no arguments.
+ * Calls the getTimeDate function and updates the class for the time blocks based on what time it is when the funciton is called.
  */
 function checkTimes() {
   getTimeDate();
