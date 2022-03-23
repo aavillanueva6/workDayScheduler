@@ -40,8 +40,6 @@ function getTimeDate() {
     )}, ${now.format('YYYY')}`
   );
   currentTime = parseInt(now.format('HH'));
-
-  //TODO: add function calls to set class for textarea based on current time.
 }
 
 /**
