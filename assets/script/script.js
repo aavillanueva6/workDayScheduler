@@ -13,16 +13,13 @@ let textBlocks = $('#plannerDiv').children().children('.agendaItems');
  * calls in saved data for .agendaItems <textarea>s
  */
 function init() {
-  console.log('init called');
   getTimeDate();
   checkTimes();
 
   //getItems from localStorage to pull stored data and deliver it to the textareas
   $.each(textBlocks, function () {
     let timeBlockID = 'time' + $(this).attr('data-time');
-    console.log(timeBlockID);
     $(this).val(localStorage.getItem(timeBlockID));
-    console.log('line38');
   });
 }
 
